@@ -52,15 +52,13 @@ class SiteController extends Controller
     }   
     
     public function create_user(Request $request) {
-        $user = $request->user();
         
         $new_user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make('PabloEscobar')
         ]);
-        $new_user->position = $request->position;
-        $new_user->user_type = 'staff';
+        $new_user->user_type = $request->user_type;
         $new_user->save();       
 
         return back();
