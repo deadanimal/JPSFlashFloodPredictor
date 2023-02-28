@@ -66,7 +66,7 @@
 					@if(Auth::user()->user_type == 'admin')
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="/users">
-							<i class="align-middle me-2 fa fa-fw fa-users"></i> <span class="align-middle">User</span>
+							<span class="align-middle">User</span>
 						</a>
 					</li>								
 					@endif			

@@ -73,7 +73,7 @@
                                         <tr>
                                             <td>{{$user->name}}</td>
                                             <td>{{$user->email}}</td>
-                                            <td>{{ucfirst($user->position)}}</td>
+                                            <td>{{ucfirst($user->user_type)}}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
