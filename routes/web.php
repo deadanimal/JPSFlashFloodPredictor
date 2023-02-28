@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\IntegrationController;
+use App\Http\Controllers\ProcedureController;
 use App\Http\Controllers\ShapefileController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\ThresholdController;
+use App\Http\Controllers\WeightageController;
 
 Route::middleware('auth')->group(function () {
     
