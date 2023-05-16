@@ -10,6 +10,7 @@ class IntegrationSaoffgsData extends Model
     use HasFactory;
 
     protected $fillable = [
+        'timestamp',
         'BASIN',
         'MAP01',
         'MAP03',

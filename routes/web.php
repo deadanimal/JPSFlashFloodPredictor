@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\ThresholdController;
 use App\Http\Controllers\WeightageController;
+use App\Http\Controllers\SaoffgsController;
 
 Route::middleware('auth')->group(function () {
     
@@ -19,7 +20,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/users', [SiteController::class, 'show_users']);
     Route::post('/users', [SiteController::class, 'create_user']);
     Route::get('/users/{id}', [SiteController::class, 'show_user']);    
-    Route::put('/users/{id}', [SiteController::class, 'update_user']);        
+    Route::put('/users/{id}/name', [SiteController::class, 'update_user_name']);        
+    Route::put('/users/{id}/password', [SiteController::class, 'update_user_password']);        
 
     Route::get('/procedures', [ProcedureController::class, 'show_procedure_list']);
     Route::post('/procedures', [ProcedureController::class, 'create_procedure']);
@@ -42,5 +44,9 @@ Route::middleware('auth')->group(function () {
     Route::put('/shapefiles/{shapefile_id}', [ShapefileController::class, 'update_shapefile_detail']);       
     
     Route::get('/integrations', [IntegrationController::class, 'show_integration_list']);
+
+    Route::get('/saoffgs', [SaoffgsController::class, 'show_saoffgs_list']);
+    Route::get('/saoffgs/{id}', [SaoffgsController::class, 'show_saoffgs_detail']);
+    Route::put('/saoffgs/{id}', [SaoffgsController::class, 'update_saoffgs_detail']);    
 
 });

@@ -6,15 +6,22 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
+use Spatie\Activitylog\Models\Activity;
+
 
 class SiteController extends Controller
 {
-    public function show_home() {
+    public function show_home(Request $request) {
+
         return redirect('/dashboard');
     }
 
     public function show_dashboard(Request $request) {
         $user = $request->user();
+       
+        activity()
+            ->causedBy($user)
+            ->log('Access Dashboard'); 
         return view('dashboard', compact('user'));
     }    
 
@@ -50,6 +57,14 @@ class SiteController extends Controller
         $users = User::all();
         return view('users', compact('users'));
     }   
+
+    public function show_user(Request $request) {
+        $user = $request->user();
+        $id = (int)$request->route('id');
+        $user = User::find($id);
+        $activities = Activity::all();
+        return view('user', compact('user', 'activities'));
+    }      
     
     public function create_user(Request $request) {
         
@@ -63,4 +78,22 @@ class SiteController extends Controller
 
         return back();
     }  
+
+    public function update_user_name(Request $request) {
+        $user = $request->user();
+        $id = (int)$request->route('id');
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->save();
+        return back();
+    }     
+    
+    public function update_user_password(Request $request) {
+        $user = $request->user();
+        $id = (int)$request->route('id');
+        $user = User::find($id);
+        $user->password = Hash::make($request->password);
+        $user->save();
+        return back();
+    }        
 }

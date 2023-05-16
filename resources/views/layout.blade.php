@@ -61,7 +61,13 @@
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="/integrations"> <span class="align-middle">Integration</span>
 						</a>
+					</li>	
+					
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="/saoffgs"> <span class="align-middle">SAOFFGS</span>
+						</a>
 					</li>		                    
+										
 					
 					@if(Auth::user()->user_type == 'admin')
 					<li class="sidebar-item">
