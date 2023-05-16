@@ -60,7 +60,7 @@ class SiteController extends Controller
 
     public function show_user(Request $request) {
         $user = $request->user();
-        $id = (int)$request->route('id');
+        {$id = (int)$request->route('id');}
         $user = User::find($id);
         $activities = Activity::all();
         return view('user', compact('user', 'activities'));
