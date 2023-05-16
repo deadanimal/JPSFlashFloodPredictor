@@ -25,14 +25,16 @@
                             <table class="table table-striped table-sm">
                                 <thead>
                                     <tr>
-                                        <th>Raw Data</th>
+                                        <th>Timestamp</th>
+                                        <th>Basin</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
                                     @foreach ($datas as $data)
                                         <tr>
-                                            <td><a href="/saoffgs/{{$data->id}}">{{$data}}</a></td>
+                                            <td><a href="/saoffgs/{{$data->id}}">{{$data->timestamp}}</a></td>
+                                            <td><a href="/saoffgs/{{$data->id}}">{{$data->BASIN}}</a></td>
                                         </tr>
                                     @endforeach
                                 </tbody>
