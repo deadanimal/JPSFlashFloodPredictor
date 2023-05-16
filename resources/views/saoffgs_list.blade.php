@@ -33,7 +33,7 @@
 
                                     @foreach ($datas as $data)
                                         <tr>
-                                            <td><a href="/saoffgs/{{$data->id}}">{{$data->created_at}}</a></td>
+                                            <td><a href="/saoffgs/{{$data->id}}">{{$data->timestamp}}</a></td>
                                             <td><a href="/saoffgs/{{$data->id}}">{{$data->id}}</a></td>
                                         </tr>
                                     @endforeach
